@@ -5,7 +5,9 @@ import getYear from 'date-fns/getYear';
 import parseISO from 'date-fns/parseISO';
 import type { Day as WeekDay } from 'date-fns';
 
-import styles from './styles.css';
+import styles from './styles.module.css';
+
+console.log(styles);
 
 import { Day, EventHandlerMap, Labels, ReactEvent, SVGRectEventHandler, Theme } from '../types';
 import {
@@ -250,7 +252,7 @@ const ActivityCalendar: FunctionComponent<Props> = ({
               y={textHeight + (blockSize + blockMargin) * dayIndex}
               width={blockSize}
               height={blockSize}
-              fill={theme[`level${day.level}` as keyof Theme]}
+              fill={`var(--${NAMESPACE}-l${day.level})`}
               rx={blockRadius}
               ry={blockRadius}
               className={styles.block}
@@ -297,12 +299,12 @@ const ActivityCalendar: FunctionComponent<Props> = ({
             <span style={{ marginRight: '0.4em' }}>{labels?.legend?.less ?? 'Less'}</span>
             {Array(5)
               .fill(undefined)
-              .map((_, index) => (
-                <svg width={blockSize} height={blockSize} key={index}>
+              .map((_, level) => (
+                <svg width={blockSize} height={blockSize} key={level}>
                   <rect
                     width={blockSize}
                     height={blockSize}
-                    fill={theme[`level${index}` as keyof Theme]}
+                    fill={`var(--${NAMESPACE}-l${level})`}
                     rx={blockRadius}
                     ry={blockRadius}
                   />

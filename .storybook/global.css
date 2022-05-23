@@ -1,0 +1,21 @@
+:root {
+  --react-activity-calendar-l0: #f0f0f0;
+  --react-activity-calendar-l1: #c4edde;
+  --react-activity-calendar-l2: #7ac7c4;
+  --react-activity-calendar-l3: #f73859;
+  --react-activity-calendar-l4: #384259;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --react-activity-calendar-l0: #5d334e;
+    --react-activity-calendar-l1: #51557e;
+    --react-activity-calendar-l2: #a5c9ca;
+    --react-activity-calendar-l3: #d6d5a8;
+    --react-activity-calendar-l4: #f73859;
+  }
+
+  html {
+    color: #eee;
+  }
+}
